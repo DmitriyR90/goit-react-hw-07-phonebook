@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 import {
   FormWrap,
@@ -62,7 +62,7 @@ export const ContactForm = () => {
     <Formik
       initialValues={{
         name: '',
-        number: '',
+        phone: '',
       }}
       onSubmit={handleSubmit}
     >
@@ -81,13 +81,13 @@ export const ContactForm = () => {
           <FormLabel>
             Number
             <FormFeld
-              id="number"
-              name="number"
+              id="phone"
+              name="phone"
               type="tel"
               validate={validateNumber}
             />
-            {errors.number && touched.number && (
-              <ErrorMsg>{errors.number}</ErrorMsg>
+            {errors.phone && touched.phone && (
+              <ErrorMsg>{errors.phone}</ErrorMsg>
             )}
           </FormLabel>
           <FormButton type="submit">Add contact</FormButton>

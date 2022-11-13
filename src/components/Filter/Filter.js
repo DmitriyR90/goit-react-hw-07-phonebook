@@ -1,7 +1,7 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import { FilterInput, Title, FilterWrap } from './Filter.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
+import { setFilterValue } from 'redux/contactsSlice';
 import { getFilter } from 'redux/selectors';
 
 export const Filter = () => {
@@ -9,7 +9,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
 
   const onChangeFilter = e => {
-    dispatch(setFilter(e.target.value));
+    dispatch(setFilterValue(e.target.value));
   };
 
   return (
